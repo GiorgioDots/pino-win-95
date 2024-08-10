@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { DesktopElement, DesktopElementComponent } from '../desktop-element/desktop-element.component';
 import { DialogService } from '../dialog/dialog.service';
+import { PinoImagesService } from '../../pino-images.service';
 
 @Component({
   selector: 'app-image-dialog',
@@ -28,7 +29,7 @@ export class ImageDialogComponent {
 
   isMaximized = false;
 
-  constructor(public svc: DialogService) {}
+  constructor(public svc: DialogService, public pinoSvc: PinoImagesService) {}
 
   ngOnInit(): void {
     this.onMaximize();
@@ -61,5 +62,14 @@ export class ImageDialogComponent {
 
   onMinimize() {
     this.svc.toggleMinimize(this._dia_id);
+  }
+
+  onNext(){
+    this.svc.open(ImageDialogComponent, {desktopElement: this.pinoSvc.getNext(this.desktopElement)}, true)
+  }
+
+  onPrev(){
+    this.svc.open(ImageDialogComponent, {desktopElement: this.pinoSvc.getPrev(this.desktopElement)}, true)
+
   }
 }

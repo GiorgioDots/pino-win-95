@@ -60,7 +60,9 @@
     />
   </div>
   <div class="dialog-footer">
-    <div class="card" style="flex-grow: 1"></div>
-    <div class="card" style="flex-grow: 1"></div>
+    <button style="flex-grow: 1; margin-top: 2px" (click)="onPrev()" [disabled]="!pinoSvc.hasPrev(desktopElement)">&lt;</button>
+    <button style="flex-grow: 1; margin-top: 2px" (click)="onNext()" [disabled]="!pinoSvc.hasNext(desktopElement)">&gt;</button>
+    <!-- <div class="card"  style="flex-grow: 1"></div>
+    <div class="card" style="flex-grow: 1"></div> -->
   </div>
 </div>

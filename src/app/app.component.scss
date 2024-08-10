@@ -152,7 +152,6 @@
   font-size: 42pt;
   font-family: sans-serif;
   text-shadow: 4px 4px 0px #4ab18e;
-  line-height: 120px;
   @media screen and (max-width: 620px) {
     width: 62px;
   }
@@ -206,6 +205,8 @@ img.checker {
     0,
     1
   );
+  animation: colorShift 5s linear infinite, hueRotate 5s linear infinite;
+
 }
 
 img.palm {

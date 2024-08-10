@@ -39,15 +39,17 @@ button {
 
   font-weight: bold;
 
-  &:hover {
-    background: lighten($gray-background, 2%);
-  }
-
-  &:active, &.active {
-    border-top: 2px solid $border-downlight;
-    border-left: 2px solid $border-downlight;
-    border-bottom: 2px solid $border-highlight;
-    border-right: 2px solid $border-highlight;
+  &:not(:disabled) {
+    &:hover {
+      background: lighten($gray-background, 2%);
+    }
+  
+    &:active, &.active {
+      border-top: 2px solid $border-downlight;
+      border-left: 2px solid $border-downlight;
+      border-bottom: 2px solid $border-highlight;
+      border-right: 2px solid $border-highlight;
+    }
   }
 }
 
