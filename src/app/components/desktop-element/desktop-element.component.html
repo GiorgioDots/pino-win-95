@@ -1,0 +1,8 @@
+<div
+  class="desktop-element-container"
+  (dblclick)="elementClicked($event)"
+  [ngStyle]="{ color: element.color ?? '' }"
+>
+  <img [ngSrc]="element.icon" [alt]="element.icon" width="32" height="32" />
+  <span>{{ element.label }}</span>
+</div>

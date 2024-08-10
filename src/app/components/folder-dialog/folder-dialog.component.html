@@ -1,0 +1,63 @@
+<div
+  #dialog
+  class="dialog"
+  [style.display]="svc.isMinimized(_dia_id) ? 'none' : 'flex'"
+  [style.width.px]="size.w"
+  [style.height.px]="size.h"
+  [style.zIndex]="svc.isActive(_dia_id) ? 10 : 1"
+  (mousedown)="svc.setActive(this._dia_id)"
+  cdkDrag
+  [cdkDragDisabled]="isMaximized"
+  [cdkDragFreeDragPosition]="position"
+>
+  <div #dialogTitle class="dialog-title" [ngClass]="{active: svc.isActive(this._dia_id)}" >
+    <div class="dialog-title-text" cdkDragHandle>
+      <img
+        [src]="desktopElement.icon"
+        [alt]="desktopElement.icon"
+        style="height: 1rem"
+      />
+      {{ desktopElement.label }}
+    </div>
+    <div class="dialog-title-actions">
+      <button (click)="onMinimize()">_</button>
+      <button
+        style="display: flex; align-items: center; justify-content: center"
+        (click)="onMaximize()"
+      >
+        <div
+          style="
+            height: 10px;
+            width: 10px;
+            border: 1px solid black;
+            border-top: 2px solid black;
+          "
+        ></div>
+      </button>
+      <button
+        (click)="close()"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 12px;
+        "
+      >
+        X
+      </button>
+    </div>
+  </div>
+  <div class="dialog-content">
+    <app-desktop-element
+      *ngFor="let image of folderElements"
+      [element]="image"
+      (onClick)="openImage(image)"
+    ></app-desktop-element>
+  </div>
+  <div class="dialog-footer">
+    <div class="card" style="flex-grow: 1">
+      {{ folderElements.length }} object(s)
+    </div>
+    <div class="card" style="flex-grow: 1"></div>
+  </div>
+</div>

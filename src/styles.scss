@@ -1,1 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.cdnfonts.com/css/w95fa");
+@import "./variables.scss";
+
+* {
+  box-sizing: border-box;
+  font-family: "W95FA", sans-serif;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+}
+
+html,
+body {
+  height: 100dvh;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  background: #088484;
+}
+
+button {
+  background: $gray-background;
+
+  border-top: 2px solid $border-highlight;
+  border-left: 2px solid $border-highlight;
+  border-bottom: 2px solid $border-downlight;
+  border-right: 2px solid $border-downlight;
+
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 2px;
+
+  font-weight: bold;
+
+  &:hover {
+    background: lighten($gray-background, 2%);
+  }
+
+  &:active, &.active {
+    border-top: 2px solid $border-downlight;
+    border-left: 2px solid $border-downlight;
+    border-bottom: 2px solid $border-highlight;
+    border-right: 2px solid $border-highlight;
+  }
+}
+
+.card {
+  background-color: #c0c0c0;
+  border-top: 2px solid $border-downlight-lighter;
+  border-left: 2px solid $border-downlight-lighter;
+  border-bottom: 2px solid $border-highlight;
+  border-right: 2px solid $border-highlight;
+
+  font-size: 0.875rem;
+
+  padding: 3px 10px 2px 1px;
+}

@@ -1,0 +1,19 @@
+<div
+  style="
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+  "
+>
+  <div
+    *ngFor="let dialog of svc.currentDialogs; index as i"
+    style="pointer-events: all"
+  >
+    <ng-container
+      *ngComponentOutlet="dialog.component; inputs: dialog.inputs"
+    />
+  </div>
+</div>
