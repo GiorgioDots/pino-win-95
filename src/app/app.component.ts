@@ -31,6 +31,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 })
 export class AppComponent implements OnInit {
   currTime: Date = new Date();
+  audio = new Audio();
   menuActive = false;
   dialogActive = false;
   desktopElement: DesktopElement = {
@@ -80,7 +81,7 @@ export class AppComponent implements OnInit {
     { icon: 'pino/p17.jpeg', label: 'p17.jpeg', color: 'black' },
     { icon: 'pino/p18.jpeg', label: 'p18.jpeg', color: 'black' },
     { icon: 'pino/p19.jpeg', label: 'p19.jpeg', color: 'black' },
-    { icon: 'pino/p20.jpeg', label: 'p20.jpeg', color: 'black' },
+    // { icon: 'pino/p20.jpeg', label: 'p20.jpeg', color: 'black' },
     { icon: 'pino/p21.jpeg', label: 'p21.jpeg', color: 'black' },
     { icon: 'pino/p22.jpeg', label: 'p22.jpeg', color: 'black' },
     { icon: 'pino/p23.jpeg', label: 'p23.jpeg', color: 'black' },
@@ -92,14 +93,17 @@ export class AppComponent implements OnInit {
   constructor(public diaSvc: DialogService) {}
 
   ngOnInit(): void {
-    let audio = new Audio();
-    audio.src = "MACINTOSH PLUS.mp3";
-    audio.load();
-    audio.volume = 0.2;
-    audio.play();
+
+    this.audio.src = "MACINTOSH PLUS.mp3";
+    this.audio.load();
+    this.audio.volume = 0.2;
     setInterval(() => {
       this.currTime = new Date();
     }, 1000);
+  }
+
+  playSong(){
+    this.audio.play();
   }
 
   openFolder() {
@@ -107,61 +111,5 @@ export class AppComponent implements OnInit {
       folderElements: this.images,
       desktopElement: this.desktopElement
     });
-    // this.diaSvc.open(FolderDialogComponent, {
-    //   folderElements: this.images,
-    //   desktopElement: this.desktopElement
-    // });
-    // this.diaSvc.open(FolderDialogComponent, {
-    //   folderElements: this.images,
-    //   desktopElement: this.desktopElement
-    // });
-    // this.diaSvc.open(FolderDialogComponent, {
-    //   folderElements: this.images,
-    //   desktopElement: this.desktopElement
-    // });
-    // this.diaSvc.open(FolderDialogComponent, {
-    //   folderElements: this.images,
-    //   desktopElement: this.desktopElement
-    // });
-    // this.diaSvc.open(FolderDialogComponent, {
-    //   folderElements: this.images,
-    //   desktopElement: this.desktopElement
-    // });
-    // this.diaSvc.open(FolderDialogComponent, {
-    //   folderElements: this.images,
-    //   desktopElement: this.desktopElement
-    // });
-    // this.diaSvc.open(FolderDialogComponent, {
-    //   folderElements: this.images,
-    //   desktopElement: this.desktopElement
-    // });
-    // this.diaSvc.open(FolderDialogComponent, {
-    //   folderElements: this.images,
-    //   desktopElement: this.desktopElement
-    // });
-    // this.diaSvc.open(FolderDialogComponent, {
-    //   folderElements: this.images,
-    //   desktopElement: this.desktopElement
-    // });
-    // this.diaSvc.open(FolderDialogComponent, {
-    //   folderElements: this.images,
-    //   desktopElement: this.desktopElement
-    // });
-    // this.diaSvc.open(FolderDialogComponent, {
-    //   folderElements: this.images,
-    //   desktopElement: this.desktopElement
-    // });
-    // this.diaSvc.open(FolderDialogComponent, {
-    //   folderElements: this.images,
-    //   desktopElement: this.desktopElement
-    // });
-    // this.diaSvc.open(FolderDialogComponent, {
-    //   folderElements: this.images,
-    //   desktopElement: this.desktopElement
-    // });
-    // this.diaSvc.open(FolderDialogComponent, {
-    //   folderElements: this.images,
-    //   desktopElement: this.desktopElement
-    // });
   }
 }

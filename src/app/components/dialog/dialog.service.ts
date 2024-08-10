@@ -55,7 +55,6 @@ export class DialogService {
   }
 
   setActive(id: string) {
-    console.log('settingActive');
     this.minimizedDialogs = this.minimizedDialogs.filter((k) => k.id != id);
     this.activeDialog = id;
   }

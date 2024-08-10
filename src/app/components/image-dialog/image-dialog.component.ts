@@ -32,7 +32,6 @@ export class ImageDialogComponent {
 
   ngOnInit(): void {
     this.onMaximize();
-    console.log(this._dia_id);
   }
 
   close() {

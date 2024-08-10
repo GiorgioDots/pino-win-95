@@ -45,7 +45,6 @@ export class FolderDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.onMaximize();
-    console.log(this._dia_id);
   }
 
   close() {
