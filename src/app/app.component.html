@@ -77,6 +77,7 @@
             last: i == menus.length - 1,
             'almost-last': i == menus.length - 2
           }"
+          (click)="item.action && item.action()"
         >
           <img
             [src]="item.icon"

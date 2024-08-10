@@ -46,6 +46,7 @@ export class AppComponent implements OnInit {
     height?: string;
     marginLeft?: string;
     gap?: string;
+    action?: (() => void);
   }[] = [
     { label: 'Programs', icon: 'Program Folder.ico' },
     { label: 'Documents', icon: 'DocumentsFolder.ico' },
@@ -58,8 +59,8 @@ export class AppComponent implements OnInit {
       marginLeft: '6px',
       gap: '10px',
     },
-    { label: 'Run...', icon: 'Program wait.ico' },
-    { label: 'Shut Down...', icon: 'Turn Off Computer.ico' },
+    { label: 'Run...', icon: 'Program wait.ico', action: () => this.audio.play() },
+    { label: 'Shut Down...', icon: 'Turn Off Computer.ico', action: () => this.audio.pause() },
   ];
 
   
@@ -68,16 +69,18 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.audio.src = "MACINTOSH PLUS.mp3";
-    this.audio.load();
-    this.audio.volume = 0.2;
     setInterval(() => {
       this.currTime = new Date();
     }, 1000);
   }
 
   playSong(){
-    this.audio.play();
+    if(this.audio.src == ""){
+      this.audio.src = "MACINTOSH PLUS.mp3";
+      this.audio.load();
+      this.audio.volume = 0.2;
+      this.audio.play();
+    } 
   }
 
   openFolder() {
