@@ -2,6 +2,8 @@
 
 .dialog {
   position: absolute;
+  resize: both;
+  overflow: auto;
   top: 0;
   left: 0;
   border-top: 2px solid $border-highlight;
@@ -11,6 +13,8 @@
 
   background: $gray-background;
   padding: 2px;
+  min-width: min-content;
+  min-height: 100px;
 
   width: 100%;
   display: flex;
@@ -36,7 +40,7 @@
       gap: 4px;
       color: $gray-background;
       flex: 1;
-      
+      margin-right: 0.5rem;
     }
     .dialog-title-actions {
       display: flex;
